@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Primitiva</title>
+    <style>
+        body{
+            text-align:center;
+            font-size: 2rem;
+            font-weight: bold;
+            font-family: 'Lucida Sans';
+            background: url(https://i.promecal.es/IMG/2014/A7F28415-EAF0-5F2B-9D66964E7A4B6A56.JPG);
+            background-repeat: no-repeat;
+            background-position: top, center;
+        }
+    </style>
+</head>
+<body>
+    <script language="Javascript">
+        function generarLoteria() {
+            num = new Array(6);
+            repe=1;
+
+            while (repe==1) {
+                for(i=0; i<6; i++) {
+                    num[i]=1+Math.floor(Math.random()*49); 
+                }
+                
+                repe=0;
+                
+                for(a=0; a<5; a++) {
+                    for(b=a+1; b<6; b++) {
+                        if (num[a]>num[b]) {
+                            aux=num[a];
+                            num[a]=num[b];
+                            num[b]=aux; 
+                        }
+                        if (num[a]==num[b]) repe=1;
+                    }
+                }
+            }
+        }
+        generarLoteria();
+        document.write("<br><br><br><br><br><br><br>");
+        document.write(" ",num[0]," - ",num[1]," - ",num[2]," - ",num[3]," - ",num[4]," - ",num[5]);
+    </script>
+</body>
+</html>
